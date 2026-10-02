@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employees</title>
+</head>
+<body>
+
+    <h1>Employee Management</h1>
+
+    <a href="/employees/create">Add Employee</a>
+
+    <br><br>
+
+    <table border="1" cellpadding="10">
+
+        <tr>
+            <th>Employee ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Basic Salary</th>
+            <th>HRA</th>
+            <th>DA</th>
+            <th>Gross Salary</th>
+            <th>Actions</th>
+        </tr>
+
+        <% employees.forEach(employee => { %>
+
+            <tr>
+
+                <td><%= employee.empid %></td>
+
+                <td><%= employee.name %></td>
+
+                <td><%= employee.email %></td>
+
+                <td><%= employee.basicSalary %></td>
+
+                <td><%= employee.hra %></td>
+
+                <td><%= employee.da %></td>
+
+                <td><%= employee.grossSalary %></td>
+
+                <td>
+                    <a href="/employees/edit/<%= employee._id %>">
+                        Edit
+                    </a>
+
+                    |
+
+                    <a href="/employees/delete/<%= employee._id %>">
+                        Delete
+                    </a>
+                </td>
+
+            </tr>
+
+        <% }) %>
+
+    </table>
+
+    <br>
+
+    <a href="/logout">Logout</a>
+
+</body>
+</html>
